@@ -1,0 +1,832 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>bootcamp-master</title>
+        
+        <meta name="robots" content="noindex" />
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="note/index.html"><strong aria-hidden="true">1.</strong> 講義資料ノート</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="note/about.html"><strong aria-hidden="true">1.1.</strong> 受講時の注意</a></li><li class="chapter-item expanded "><a href="note/with-code.html"><strong aria-hidden="true">1.2.</strong> コードに向き合いやすくなる考え方</a></li><li class="chapter-item expanded "><a href="note/for-work.html"><strong aria-hidden="true">1.3.</strong> 課題にチャレンジするコツ</a></li></ol></li><li class="chapter-item expanded "><a href="js/index.html"><strong aria-hidden="true">2.</strong> JavaScript</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="js/js01/index.html"><strong aria-hidden="true">2.1.</strong> JS_おみくじ</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="js/index.html"><strong aria-hidden="true">2.1.1.</strong> JavaScriptとは</a></li><li class="chapter-item expanded "><a href="components/variable.html"><strong aria-hidden="true">2.1.2.</strong> 変数と計算</a></li><li class="chapter-item expanded "><a href="components/random.html"><strong aria-hidden="true">2.1.3.</strong> ランダムな数（乱数）をつくる</a></li><li class="chapter-item expanded "><a href="components/if.html"><strong aria-hidden="true">2.1.4.</strong> 条件分岐</a></li><li class="chapter-item expanded "><a href="js/js01/omikuji.html"><strong aria-hidden="true">2.1.5.</strong> おみくじのWebアプリ実装</a></li><li class="chapter-item expanded "><a href="js/js01/work.html"><strong aria-hidden="true">2.1.6.</strong> 課題</a></li></ol></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">bootcamp-master</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="講義資料ノート"><a class="header" href="#講義資料ノート">講義資料ノート</a></h1>
+<p>サンプルコード置き場はこちら</p>
+<p><a href="https://bit.ly/3rkcXH8">https://bit.ly/3rkcXH8</a></p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="受講時の注意"><a class="header" href="#受講時の注意">受講時の注意</a></h1>
+<p>時間もお金も投資しているのだからむしり取れるだけむしり取れッ！</p>
+<h2 id="講義中に意識するポイント"><a class="header" href="#講義中に意識するポイント">講義中に意識するポイント</a></h2>
+<p>ただ受けているだけだと資料の内容しかものにできずもったいない！</p>
+<p>まず下記は絶対厳守！！！</p>
+<ul>
+<li>うまくいかないときに黙っている「サイレント詰み」は犯罪！</li>
+<li>まずはわからなくても「動くもの」をつくれ！</li>
+<li>食糧飲料燃料の補給は各自のペースで！（自分にとって最適な状況を用意しろッ！）</li>
+</ul>
+<h2 id="いつでもコードを書けるように"><a class="header" href="#いつでもコードを書けるように">いつでもコードを書けるように！</a></h2>
+<ul>
+<li>授業中は常にエディタを起動！</li>
+<li>資料も常に開いておこう！</li>
+</ul>
+<h2 id="講義中はまず動くものをつくれ"><a class="header" href="#講義中はまず動くものをつくれ">講義中はまず動くものをつくれ！</a></h2>
+<ul>
+<li>講義では一緒に1つのアプリケーションをつくる．</li>
+<li>わからなくてもとにかく「動かす」．</li>
+<li>課題に挑戦すると大抵うまくいかない．そのときに「講義でつくった動くもの」と「自分でつくった動かないもの」を比較して何がマズイのか探るんだッ！</li>
+</ul>
+<h2 id="聴くときは聴き書くときは書く"><a class="header" href="#聴くときは聴き書くときは書く">聴くときは聴き，書くときは書く！</a></h2>
+<ul>
+<li>初めて挑戦することなので，わからなくなって当然．．！</li>
+<li>まずはしっかり説明を聴こう！</li>
+<li>聴くときは聴くこと，手を動かすときは手を動かすことに集中！！</li>
+</ul>
+<h2 id="クラスのメンバーでお互いに刺激し合おう"><a class="header" href="#クラスのメンバーでお互いに刺激し合おう">クラスのメンバーでお互いに刺激し合おう！</a></h2>
+<ul>
+<li>考えたことや感じたことはslackの「ガヤチャンネル」でガンガン発信！</li>
+<li>くだらないことでもOK！！意見を言うやつは偉い！！</li>
+<li>誰かのコメントに乗っかろう！</li>
+</ul>
+<h2 id="疑問を共有しよう"><a class="header" href="#疑問を共有しよう">疑問を共有しよう！</a></h2>
+<ul>
+<li>質問はまずslackへ！</li>
+<li>慣れないうちは「詰んだ」の一言から．詰みを表明することが大切！</li>
+<li>慣れたら「エラーのスクショ」や「書いたコード」を貼ろう！</li>
+<li>他の人の質問にも目を通そう！（同じ質問があるかも）</li>
+</ul>
+<h2 id="進捗を共有しよう"><a class="header" href="#進捗を共有しよう">進捗を共有しよう！</a></h2>
+<ul>
+<li>演習時，できた人はスクショなどslackに貼ってアウトプット！</li>
+<li>できたら「できた」コメント！</li>
+<li>詰んだら「詰んだ」コメント！</li>
+<li>みなさんのコメントを見ながら講義を進めていきます！</li>
+</ul>
+<h2 id="詰みを脱するtips"><a class="header" href="#詰みを脱するtips">詰みを脱するTips</a></h2>
+<ul>
+<li>まずは打ち間違いを疑おう！
+<ul>
+<li><code>()</code> <code>[]</code> <code>{}</code> <code>'</code> <code>&quot;</code> <code>;</code> など</li>
+</ul>
+</li>
+<li>書いたら保存しよう！（よく忘れる！）
+<ul>
+<li>Mac: <code>command + s</code></li>
+<li>Windows: <code>ctrl + s</code></li>
+</ul>
+</li>
+<li>他の人に見てもらおう！
+<ul>
+<li>自分の打ち間違いは10分探しても見つからないが，他人の打ち間違いは2秒で見つかる．</li>
+<li>「隣の人」「slack + スクショ」「zoomのブレイクアウト」を活用するのだッ！</li>
+</ul>
+</li>
+</ul>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="コードに向き合いやすくなる考え方"><a class="header" href="#コードに向き合いやすくなる考え方">コードに向き合いやすくなる考え方</a></h1>
+<p>彼を知り己を知らば百戦危うからず．</p>
+<h2 id="質問を制すものはコードを制す"><a class="header" href="#質問を制すものはコードを制す">質問を制すものはコードを制す！</a></h2>
+<p>わからなかったり動かなかったりのときは遠慮なく質問せよ！</p>
+<p>下記を記述するとお互いに幸せになれる確率が高まるッ！</p>
+<ul>
+<li>やりたいことは何か</li>
+<li>どういう状態（動き）になればゴールなのか</li>
+<li>どうやったか（考え方や書いたコードなど）</li>
+<li>どうなったか（エラーメッセージやスクショなど）</li>
+<li>調べたときのググりワード，参考にしたサイトのURL</li>
+</ul>
+<p>勿論最初から全部はできないので，まずは遠慮なく投稿するのが大事！</p>
+<p>（足りない部分は講師チューターの方々が拾ってくれる）</p>
+<h2 id="言語化が大事"><a class="header" href="#言語化が大事">言語化が大事！</a></h2>
+<ul>
+<li>「言語化」とは自分のやりたいことやうまくいかない現状を他の人に説明すること．</li>
+<li>言語化は「できると良い」ではなく「できなければコードが書けない」のである．講師チューターは超能力者ではないので，みなさんが説明しなければ何をしたいのかわからないのだッ．．！</li>
+<li>コードを書くにも「JavaScriptで何を書けばよいのか」「どうなればOKなのか」を自ら決めて明確にすることが第一歩．</li>
+<li>無理矢理にでも言葉にしたら誰かにぶつけよう．誰かと議論することでより解像度が高まる．最初は「ちょっと何いってるかわからない」と言われるが，やらないと言語化のスキルは高まらない．沈黙は死．</li>
+</ul>
+<h2 id="正解を求める思考を捨てよ"><a class="header" href="#正解を求める思考を捨てよ">正解を求める思考を捨てよ！</a></h2>
+<ul>
+<li>「唯一の正解は存在しない」</li>
+<li>提示されたヒントでは動かないこともあるし，それとは異なる方法でうまくいくこともある．</li>
+<li>一つのやり方に固執することは地獄への一本道を進むことに似たり．</li>
+<li>「効率のよいやり方」など一旦動かしてから改めて考えれば良い．力技だろうがまずは動けば良かろうなのだァァッ！！</li>
+</ul>
+<h2 id="コードは量という勝ちパターン"><a class="header" href="#コードは量という勝ちパターン">「コードは量」という勝ちパターン！</a></h2>
+<ul>
+<li>一発でうまくいくことはほぼない．特にはじめの頃は経験値が少なく「運ゲー」度が高いので，何度もやり直してうまく行くパターンを引かなければならない．</li>
+<li>運ゲーをものにするには試行回数が必要で，そのためには時間が必要になる．敵の行動パターンを集めながら会心の一撃が出るまで粘れ！</li>
+<li>わからなければ講義内容を10周くらいすれば何か見えてくるはず．わからないと嘆く時間があるならコードを書こう．レベルが足りないなら雑魚敵を狩って経験値を稼ごう．</li>
+</ul>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="課題にチャレンジするコツ"><a class="header" href="#課題にチャレンジするコツ">課題にチャレンジするコツ</a></h1>
+<p>課題を制すものは全てを制す．</p>
+<h2 id="自分でネタを決めよ"><a class="header" href="#自分でネタを決めよ">自分でネタを決めよ！</a></h2>
+<ul>
+<li>誰かに言われたものをつくっても面白くない．．．</li>
+<li>自分で「何をつくりあげるのか」を決断してチャレンジすることが大切！</li>
+<li>「自分で決めたことをやり遂げる」のが最高にCoolッ！</li>
+</ul>
+<h2 id="つくりたいものをつくれ"><a class="header" href="#つくりたいものをつくれ">つくりたいものをつくれ！</a></h2>
+<ul>
+<li>「役に立つ」「ウケそう」ではない．．．</li>
+<li>「自分がほしい物」「おもしろいと思うもの」にチャレンジすることで身が入る！</li>
+<li>「誰かに褒められる感覚」よりも「全力でやりきった感覚」ッ！</li>
+</ul>
+<h2 id="まず見た目より動きをつくれ"><a class="header" href="#まず見た目より動きをつくれ">まず見た目より動きをつくれ！</a></h2>
+<ul>
+<li>プロダクトには「機能」「見た目」どちらも大事！</li>
+<li>見た目を作り込むことでより「完成度の高いプロダクト」になる．</li>
+<li>しかしまずは「機能」や「動き」をつくる．「見た目」はその後ッ！</li>
+<li>見た目を先につくると，機能を変更したときに作り直しになる．．．</li>
+</ul>
+<h2 id="技術自体を楽しめ"><a class="header" href="#技術自体を楽しめ">技術自体を楽しめ！</a></h2>
+<ul>
+<li>技術は「アイデアを実現するためのツール」．</li>
+<li>しかし技術をより深く知ることで「できることのイメージが広がる」！</li>
+<li>「好きな技術」「やってて楽しい技術」を見つけよう！まずは技術にのめり込もう！</li>
+</ul>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="javascript"><a class="header" href="#javascript">JavaScript</a></h1>
+<h2 id="javascriptの役割"><a class="header" href="#javascriptの役割">JavaScriptの役割</a></h2>
+<table><thead><tr><th>言語</th><th>役割</th></tr></thead><tbody>
+<tr><td>HTML（マスター済み）</td><td>コンテンツの指定<br>タイトル，文章，画像などの記述</td></tr>
+<tr><td>CSS（マスター済み）</td><td>コンテンツの装飾<br>色，大きさ，配置などの指定</td></tr>
+<tr><td>JavaScript</td><td>ユーザー操作，イベント発生による動きを実現<br>（わりとなんでもできる）</td></tr>
+</tbody></table>
+<h2 id="javascriptとは"><a class="header" href="#javascriptとは">JavaScriptとは</a></h2>
+<p><strong>JavaScript ≠ JAVA</strong></p>
+<p>JavaScriptとJAVAの違い</p>
+<table><thead><tr><th>JavaScript</th><th>JAVA</th></tr></thead><tbody>
+<tr><td>フロントエンド言語</td><td>サーバサイド言語</td></tr>
+<tr><td>カモミール</td><td>カモ</td></tr>
+<tr><td>オーストラリア</td><td>オーストリア</td></tr>
+<tr><td>ハムスター</td><td>ハム</td></tr>
+<tr><td>メロンパン</td><td>メロン</td></tr>
+</tbody></table>
+<h2 id="webアプリケーションに欠かせないjavascript"><a class="header" href="#webアプリケーションに欠かせないjavascript">Webアプリケーションに欠かせないJavaScript</a></h2>
+<p><img src="js/./img/js_introduction_web_app.svg" alt="Webアプリケーションのしくみ" /></p>
+<h3 id="言語別人気ランキング2020年"><a class="header" href="#言語別人気ランキング2020年">言語別人気ランキング（2020年）</a></h3>
+<table><thead><tr><th>言語</th><th>使用している開発者（%）</th></tr></thead><tbody>
+<tr><td>JavaScript</td><td><code>||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||</code>69.7%</td></tr>
+<tr><td>HTML/CSS</td><td><code>||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||</code>62.4%</td></tr>
+<tr><td>SQL</td><td><code>|||||||||||||||||||||||||||||||||||||||||||||||||||||||||</code>56.9%</td></tr>
+<tr><td>Python</td><td><code>||||||||||||||||||||||||||||||||||||||||||</code>41.6%</td></tr>
+<tr><td>JAVA</td><td><code>||||||||||||||||||||||||||||||||||||||</code>38.4%</td></tr>
+<tr><td>C#</td><td><code>||||||||||||||||||||||||||||||||</code>32.3%</td></tr>
+<tr><td>TypeScript</td><td><code>||||||||||||||||||||||||||||</code>28.3%</td></tr>
+<tr><td>PHP</td><td><code>||||||||||||||||||||||||||</code>25.8%</td></tr>
+</tbody></table>
+<p><a href="https://insights.stackoverflow.com/survey/2020/#technology-programming-scripting-and-markup-languages">ソース: https://insights.stackoverflow.com/survey/2020/#technology-programming-scripting-and-markup-languages</a></p>
+<h2 id="javascript周辺の技術"><a class="header" href="#javascript周辺の技術">JavaScript周辺の技術</a></h2>
+<p><img src="js/./img/js_introduction_around_js.svg" alt="JS周辺技術" /></p>
+<h3 id="よく使われる技術"><a class="header" href="#よく使われる技術">よく使われる技術</a></h3>
+<table><thead><tr><th>技術</th><th>特徴</th></tr></thead><tbody>
+<tr><td><img src="js/./img/1280px-JQuery-Logo.svg.png" width="200px"></td><td>- JavaScriptのライブラリ．<br>- ユーザ操作イベントやアニメーションを実現<br>- ✅ 生JSと比較して短くかける．<br>- ✅ webアプリケーションで広く普及している．<br>- ✅ 導入が簡単．<br>- ✅ 学習コストが低い．<br>- 🔼 難しいことをやろうとすると複雑になる．<br>- まずはここから！</td></tr>
+<tr><td><img src="js/./img/react-logo.png" width="200px"><br><img src="js/./img/Vue-logo-001.svg" width="200px"><br></td><td>- JavaScriptのライブラリ．<br>- ✅ モダンなwebアプリケーション（SPA）を実現<br>- ✅ 高速！<br>- ✅ TypeScriptでの実装も可能<br>- ✅ スマホアプリも見据えた開発が可能．<br>- 🔼 学習コスト<br>- 🔼 環境構築がややハードル．<br>- （私はReactが好き）</td></tr>
+<tr><td><img src="js/./img/nodejs-logo-vector.svg" width="200px"></td><td>- サーバサイドでJavaScriptを動かす技術．<br>- ✅ フロントもサーバもJavaScriptで書ける．．！<br>- ✅ サーバサイドの中では環境構築が容易<br>- 🔼 難しいことをやろうとすると複雑になる．</td></tr>
+</tbody></table>
+<h2 id="javascriptを書く"><a class="header" href="#javascriptを書く">JavaScriptを書く</a></h2>
+<h3 id="書き方"><a class="header" href="#書き方">書き方</a></h3>
+<p><code>&lt;script&gt;&lt;/script&gt;</code>の間に処理を記述！</p>
+<h3 id="書く場所"><a class="header" href="#書く場所">書く場所</a></h3>
+<ul>
+<li>htmlファイルの<code>&lt;/body&gt;</code>のすぐ上に書こう！</li>
+<li>ほかにもいくつか書ける場所があります．</li>
+<li>別にファイルを作るやり方もあります．</li>
+</ul>
+<h3 id="まず動かす"><a class="header" href="#まず動かす">まず動かす！！</a></h3>
+<ul>
+<li><code>alert()</code></li>
+<li><code>console.log()</code></li>
+</ul>
+<blockquote>
+<p>文字列は「<code>'</code>」か「<code>&quot;</code>」で囲む．どちらでもOK！</p>
+</blockquote>
+<pre><code class="language-html">&lt;script&gt;
+  alert('Hello world');
+
+  console.log('Hello world');
+
+&lt;/script&gt;
+
+</code></pre>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="js_おみくじ"><a class="header" href="#js_おみくじ">JS_おみくじ</a></h1>
+<h2 id="本講義の内容とゴール"><a class="header" href="#本講義の内容とゴール">本講義の内容とゴール</a></h2>
+<h3 id="本講義の内容"><a class="header" href="#本講義の内容">本講義の内容</a></h3>
+<ul>
+<li>JavaScriptを動かす！</li>
+<li>変数と条件分岐の練習と実装．</li>
+<li>おみくじアプリケーションの実装．</li>
+</ul>
+<h3 id="本講義のゴール"><a class="header" href="#本講義のゴール">本講義のゴール</a></h3>
+<ul>
+<li>プログラミングに慣れる！</li>
+<li>「変数」「条件分岐」を扱う！</li>
+<li>課題に取り組み始める！</li>
+</ul>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="javascript-1"><a class="header" href="#javascript-1">JavaScript</a></h1>
+<h2 id="javascriptの役割-1"><a class="header" href="#javascriptの役割-1">JavaScriptの役割</a></h2>
+<table><thead><tr><th>言語</th><th>役割</th></tr></thead><tbody>
+<tr><td>HTML（マスター済み）</td><td>コンテンツの指定<br>タイトル，文章，画像などの記述</td></tr>
+<tr><td>CSS（マスター済み）</td><td>コンテンツの装飾<br>色，大きさ，配置などの指定</td></tr>
+<tr><td>JavaScript</td><td>ユーザー操作，イベント発生による動きを実現<br>（わりとなんでもできる）</td></tr>
+</tbody></table>
+<h2 id="javascriptとは-1"><a class="header" href="#javascriptとは-1">JavaScriptとは</a></h2>
+<p><strong>JavaScript ≠ JAVA</strong></p>
+<p>JavaScriptとJAVAの違い</p>
+<table><thead><tr><th>JavaScript</th><th>JAVA</th></tr></thead><tbody>
+<tr><td>フロントエンド言語</td><td>サーバサイド言語</td></tr>
+<tr><td>カモミール</td><td>カモ</td></tr>
+<tr><td>オーストラリア</td><td>オーストリア</td></tr>
+<tr><td>ハムスター</td><td>ハム</td></tr>
+<tr><td>メロンパン</td><td>メロン</td></tr>
+</tbody></table>
+<h2 id="webアプリケーションに欠かせないjavascript-1"><a class="header" href="#webアプリケーションに欠かせないjavascript-1">Webアプリケーションに欠かせないJavaScript</a></h2>
+<p><img src="js/./img/js_introduction_web_app.svg" alt="Webアプリケーションのしくみ" /></p>
+<h3 id="言語別人気ランキング2020年-1"><a class="header" href="#言語別人気ランキング2020年-1">言語別人気ランキング（2020年）</a></h3>
+<table><thead><tr><th>言語</th><th>使用している開発者（%）</th></tr></thead><tbody>
+<tr><td>JavaScript</td><td><code>||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||</code>69.7%</td></tr>
+<tr><td>HTML/CSS</td><td><code>||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||</code>62.4%</td></tr>
+<tr><td>SQL</td><td><code>|||||||||||||||||||||||||||||||||||||||||||||||||||||||||</code>56.9%</td></tr>
+<tr><td>Python</td><td><code>||||||||||||||||||||||||||||||||||||||||||</code>41.6%</td></tr>
+<tr><td>JAVA</td><td><code>||||||||||||||||||||||||||||||||||||||</code>38.4%</td></tr>
+<tr><td>C#</td><td><code>||||||||||||||||||||||||||||||||</code>32.3%</td></tr>
+<tr><td>TypeScript</td><td><code>||||||||||||||||||||||||||||</code>28.3%</td></tr>
+<tr><td>PHP</td><td><code>||||||||||||||||||||||||||</code>25.8%</td></tr>
+</tbody></table>
+<p><a href="https://insights.stackoverflow.com/survey/2020/#technology-programming-scripting-and-markup-languages">ソース: https://insights.stackoverflow.com/survey/2020/#technology-programming-scripting-and-markup-languages</a></p>
+<h2 id="javascript周辺の技術-1"><a class="header" href="#javascript周辺の技術-1">JavaScript周辺の技術</a></h2>
+<p><img src="js/./img/js_introduction_around_js.svg" alt="JS周辺技術" /></p>
+<h3 id="よく使われる技術-1"><a class="header" href="#よく使われる技術-1">よく使われる技術</a></h3>
+<table><thead><tr><th>技術</th><th>特徴</th></tr></thead><tbody>
+<tr><td><img src="js/./img/1280px-JQuery-Logo.svg.png" width="200px"></td><td>- JavaScriptのライブラリ．<br>- ユーザ操作イベントやアニメーションを実現<br>- ✅ 生JSと比較して短くかける．<br>- ✅ webアプリケーションで広く普及している．<br>- ✅ 導入が簡単．<br>- ✅ 学習コストが低い．<br>- 🔼 難しいことをやろうとすると複雑になる．<br>- まずはここから！</td></tr>
+<tr><td><img src="js/./img/react-logo.png" width="200px"><br><img src="js/./img/Vue-logo-001.svg" width="200px"><br></td><td>- JavaScriptのライブラリ．<br>- ✅ モダンなwebアプリケーション（SPA）を実現<br>- ✅ 高速！<br>- ✅ TypeScriptでの実装も可能<br>- ✅ スマホアプリも見据えた開発が可能．<br>- 🔼 学習コスト<br>- 🔼 環境構築がややハードル．<br>- （私はReactが好き）</td></tr>
+<tr><td><img src="js/./img/nodejs-logo-vector.svg" width="200px"></td><td>- サーバサイドでJavaScriptを動かす技術．<br>- ✅ フロントもサーバもJavaScriptで書ける．．！<br>- ✅ サーバサイドの中では環境構築が容易<br>- 🔼 難しいことをやろうとすると複雑になる．</td></tr>
+</tbody></table>
+<h2 id="javascriptを書く-1"><a class="header" href="#javascriptを書く-1">JavaScriptを書く</a></h2>
+<h3 id="書き方-1"><a class="header" href="#書き方-1">書き方</a></h3>
+<p><code>&lt;script&gt;&lt;/script&gt;</code>の間に処理を記述！</p>
+<h3 id="書く場所-1"><a class="header" href="#書く場所-1">書く場所</a></h3>
+<ul>
+<li>htmlファイルの<code>&lt;/body&gt;</code>のすぐ上に書こう！</li>
+<li>ほかにもいくつか書ける場所があります．</li>
+<li>別にファイルを作るやり方もあります．</li>
+</ul>
+<h3 id="まず動かす-1"><a class="header" href="#まず動かす-1">まず動かす！！</a></h3>
+<ul>
+<li><code>alert()</code></li>
+<li><code>console.log()</code></li>
+</ul>
+<blockquote>
+<p>文字列は「<code>'</code>」か「<code>&quot;</code>」で囲む．どちらでもOK！</p>
+</blockquote>
+<pre><code class="language-html">&lt;script&gt;
+  alert('Hello world');
+
+  console.log('Hello world');
+
+&lt;/script&gt;
+
+</code></pre>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="変数と計算"><a class="header" href="#変数と計算">変数と計算</a></h1>
+<h3 id="変数とは"><a class="header" href="#変数とは">変数とは</a></h3>
+<p>「変数」は文字列や数値に名前をつけて，後から使用できるようにするもの．</p>
+<p>プログラミングでは，ある部分で計算などして導出した値を別の部分で使用することが多い．</p>
+<p>その際，毎回同じ計算を行うと不便であるため，1回計算した結果に名前をつけておき別の部分でそのまま使えるようにする．</p>
+<h3 id="-key-point"><a class="header" href="#-key-point">💡 Key Point</a></h3>
+<blockquote>
+<p>変数には自分で名前をつけるが，「何の値なのか」がわかるように名前をつけることが極めて重要！！</p>
+</blockquote>
+<h3 id="変数のルール"><a class="header" href="#変数のルール">変数のルール</a></h3>
+<p>プログラミングで使用する値には「数値」「文字列」などの型が存在する．</p>
+<ul>
+<li>「数値」は数学で扱う数と同様に計算できる．</li>
+<li>「文字列」は開発者が決めたメッセージやキーワードなどである．英語でも日本語でも扱うことができ，<code>'</code>（シングルクォーテーション）か<code>&quot;</code>（ダブルクオーテーション）で囲む必要がある．</li>
+<li>変数名の先頭が数字になるパターンはNG！</li>
+</ul>
+<pre><code class="language-js">const number1 = 100;
+const number2 = 200;
+const text1 = 'hello';
+const text2 = 'world';
+const 3text = 'JavaScript'; // NG
+
+</code></pre>
+<h3 id="-key-point-1"><a class="header" href="#-key-point-1">💡 Key Point</a></h3>
+<blockquote>
+<p>シングルクォーテーションとダブルクオーテーションはどちらでも良いが統一しよう！</p>
+</blockquote>
+<h2 id="数値の計算"><a class="header" href="#数値の計算">数値の計算</a></h2>
+<p>数値は数学と同様に四則演算を行うことができる．</p>
+<pre><code class="language-js">const number1 = 1 + 9;    // 10
+const number2 = 1 - 5;    // -4
+const number3 = 2 * 4;    //  8
+const number4 = 10 / 2;   //  5
+const number5 = 10 % 3;   //  1
+
+</code></pre>
+<h2 id="文字列の結合"><a class="header" href="#文字列の結合">文字列の結合</a></h2>
+<p>文字列は「<code>+</code>」の計算を行うことができる．この場合は数学と異なり，前後の文字列が連結される．</p>
+<pre><code class="language-js">const number1 = 100;
+const number2 = 200;
+const text1 = 'hello';
+const text2 = 'world';
+const sum1 = number1 + number2;   // 300
+const sum2 = text1 + text2;   // helloworld
+
+</code></pre>
+<h3 id="-key-point-2"><a class="header" href="#-key-point-2">💡 Key Point</a></h3>
+<blockquote>
+<p><code>1</code>と<code>'1'</code>は異なるッ！</p>
+</blockquote>
+<h2 id="ngワード"><a class="header" href="#ngワード">NGワード</a></h2>
+<p>変数名には使用できない単語が存在する</p>
+<p>構文で使用するもの，将来的に使われるもの，など</p>
+<ul>
+<li>「<code>if</code>」「<code>for</code>」など</li>
+</ul>
+<p>このような単語は「予約語」と呼ばれる．</p>
+<ul>
+<li>「MDN javascript 予約語」で検索！！</li>
+<li>引っかかる場合は少ないので今は気にしなくてOK！</li>
+</ul>
+<h2 id="練習"><a class="header" href="#練習">練習</a></h2>
+<h3 id="以下の処理をjavascriptで実装しよう"><a class="header" href="#以下の処理をjavascriptで実装しよう">以下の処理をJavaScriptで実装しよう！</a></h3>
+<ul>
+<li>「<code>100</code>」と「<code>200</code>」の数値をそれぞれ変数に入れ，加算した結果を<code>alert()</code>で表示．</li>
+<li>「<code>G's</code>」と「<code>ACADEMY</code>」の文字列をそれぞれ変数に入れ，つなげて<code>alert()</code>で表示．</li>
+<li><code>js_practice.html</code>に記述しよう！</li>
+</ul>
+<h3 id="動作確認"><a class="header" href="#動作確認">動作確認</a></h3>
+<p>それぞれ「300」と「G'sACADEMY」が表示されればOK！</p>
+<h2 id="補足"><a class="header" href="#補足">補足</a></h2>
+<blockquote>
+<p>JavaScriptにおける変数の定義には「<code>const</code>」「<code>let</code>」「<code>var</code>」の3種類が存在する．</p>
+<p>基本的には<code>const</code>を使用し，どうしてもな場合に<code>let</code>を使用すれば良いだろう．</p>
+<pre><code class="language-js">const hoge = 100;
+const hoge = 200;   // エラー（同じ名前で定義するのはNG）
+hoge = 300;   // エラー（異なる値を入れ直すのはNG）
+
+// 後から上書きできる変数
+let fuga = 1000;
+let fuga = 2000;    // エラー（同じ名前で定義するのはNG）
+foo = 3000;   // OK（予期せぬ値が入ってしまう場合があるので注意）
+
+// むかしあったやつ（使わないほうが良い）
+var piyo = 99999;
+var piyo = 88888;   // OK（あぶない）
+piyo = 77777;   // OK（あぶない）
+
+</code></pre>
+</blockquote>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="ランダムな数乱数をつくる"><a class="header" href="#ランダムな数乱数をつくる">ランダムな数（乱数）をつくる</a></h1>
+<h2 id="乱数とは"><a class="header" href="#乱数とは">乱数とは</a></h2>
+<p>毎回異なる値が出てくる数のこと（例：1回目に実行したら1，2回目に実行したら4，など）．</p>
+<p>JavaScriptには最初から乱数をつくれる処理が用意されている（<code>Math.random()</code>）のでこれを利用する．しかし，この処理は0から1の範囲で小数を発生させるため，<code>Math.floor()</code>を用いて整数に直す．</p>
+<pre><code class="language-js">// 0から1の間でランダムな値（乱数）を表示．
+const randomNumber1 = Math.random();
+alert(randomNumber1);
+
+// 0から4までのどれかが表示される！
+const randomNumber2 = Math.floor(Math.random() * 5);
+alert(randomNumber2);
+
+</code></pre>
+<h3 id="-key-point-3"><a class="header" href="#-key-point-3">💡 Key Point</a></h3>
+<blockquote>
+<p>乱数の処理は毎回これでいけるので，覚えるよりコピペ！</p>
+</blockquote>
+<h3 id="補足-1"><a class="header" href="#補足-1">補足</a></h3>
+<p>JavaScriptの<code>Math.~</code>には多くの種類があり，絶対値を求めたり四捨五入したりする処理も存在する．</p>
+<h2 id="練習-1"><a class="header" href="#練習-1">練習</a></h2>
+<p><code>math.html</code>で以下の数をランダムに発生させて<code>alert();</code>で表示させよう！</p>
+<table><thead><tr><th></th><th align="right">最小値</th><th align="right">最大値</th></tr></thead><tbody>
+<tr><td>問題1</td><td align="right">0</td><td align="right">9</td></tr>
+<tr><td>問題2</td><td align="right">1</td><td align="right">9</td></tr>
+<tr><td>問題3</td><td align="right">5</td><td align="right">10</td></tr>
+<tr><td>問題4</td><td align="right">50</td><td align="right">99</td></tr>
+</tbody></table>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="条件分岐"><a class="header" href="#条件分岐">条件分岐</a></h1>
+<h2 id="条件分岐-1"><a class="header" href="#条件分岐-1">条件分岐</a></h2>
+<p>条件を満たすときと満たさないときで別々の処理を実行する！</p>
+<pre><code class="language-js">if(`条件式`){
+  // 条件式を満たす場合の処理
+} else {
+  // 条件式を満たさない場合の処理
+}
+
+</code></pre>
+<p>複数の条件で処理を分岐させることもできる！</p>
+<pre><code class="language-js">if(`条件式1`){
+  // 条件式1を満たす場合の処理
+} else if(`条件式2`) {
+  // 条件式1と満たさなくて条件式2を満たす場合の処理
+} else {
+  // いずれの条件も満たさない場合の処理
+}
+
+</code></pre>
+<h2 id="条件式"><a class="header" href="#条件式">条件式</a></h2>
+<p>条件式は左辺と右辺の比較で行うことが多い（比較演算子）．</p>
+<table><thead><tr><th>演算子</th><th>意味</th><th>補足</th></tr></thead><tbody>
+<tr><td><code>==</code></td><td>左辺と右辺が等しい</td><td><code>1</code>と<code>'1'</code>は等しいと判定される．</td></tr>
+<tr><td><code>===</code></td><td>左辺と右辺が等しい</td><td><code>1</code>と<code>'1'</code>は等しくないと判定される．</td></tr>
+<tr><td><code>!=</code></td><td>左辺と右辺が等しくない</td><td><code>1</code>と<code>'1'</code>は等しいと判定される．</td></tr>
+<tr><td><code>!==</code></td><td>左辺と右辺が等しくない</td><td><code>1</code>と<code>'1'</code>は等しくないと判定される．</td></tr>
+<tr><td><code>&gt;</code></td><td>左辺が右辺より大きい</td><td></td></tr>
+<tr><td><code>&lt;</code></td><td>左辺が右辺より小さい</td><td></td></tr>
+<tr><td><code>&gt;=</code></td><td>左辺が右辺以上</td><td></td></tr>
+<tr><td><code>&lt;=</code></td><td>左辺が右辺以下</td><td></td></tr>
+</tbody></table>
+<h3 id="-key-point-4"><a class="header" href="#-key-point-4">💡 Key Point</a></h3>
+<blockquote>
+<p>左辺と右辺が等しい場合に<code>a = b</code>のように記述してハマる．<code>a == b</code>が正解．</p>
+</blockquote>
+<h2 id="条件式の組み合わせ"><a class="header" href="#条件式の組み合わせ">条件式の組み合わせ</a></h2>
+<p>条件式は複数組み合わせることができる．下記2種類がよく使われる．</p>
+<ul>
+<li>複数の条件式を全て満たす場合（AND条件）は条件式を<code>&amp;&amp;</code>でつなぐ．</li>
+<li>複数の条件式のいずれかを満たす場合（OR条件）は条件式を<code>||</code>でつなぐ．</li>
+</ul>
+<pre><code class="language-js">if(`条件式1` &amp;&amp; `条件式2`){
+  // 条件式1と条件式2を両方満たす場合の処理
+} else {
+  // 片方しか満たさない，両方満たさない場合の処理
+}
+
+if(`条件式1` || `条件式2`){
+  // 条件式1か条件式2のどちらかを満たす場合の処理
+} else {
+  // 両方満たさない場合の処理
+}
+
+</code></pre>
+<h3 id="-key-point-5"><a class="header" href="#-key-point-5">💡 Key Point</a></h3>
+<blockquote>
+<p>条件分岐を書くときははじめに構文（<code>if(){}else{}</code>）をつくってから条件や処理を書く！</p>
+</blockquote>
+<h2 id="練習-2"><a class="header" href="#練習-2">練習</a></h2>
+<h3 id="乱数と条件分岐を組み合わせておみくじを実装"><a class="header" href="#乱数と条件分岐を組み合わせておみくじを実装">乱数と条件分岐を組み合わせておみくじを実装！</a></h3>
+<p>ランダムに「大吉・中吉・小吉・凶・大凶」を<code>alert()</code>で表示！</p>
+<p><code>omikuji01.html</code>に記述しよう！</p>
+<h3 id="ヒント"><a class="header" href="#ヒント">ヒント！！</a></h3>
+<ol>
+<li><code>Math.rondom()</code>で0から4を発生させる．（&lt;- 前項でつくったものが使える．．！）</li>
+<li>出た数値に応じて<code>if</code>文を使って条件分岐し，異なる内容を<code>alert()</code>で出力！</li>
+</ol>
+<p>毎回ランダムで「大吉・中吉・小吉・凶・大凶」のどれかが表示されればOK！</p>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="おみくじのwebアプリ実装"><a class="header" href="#おみくじのwebアプリ実装">おみくじのWebアプリ実装</a></h1>
+<p>おみくじの処理自体はできたが，画面から操作できるWebアプリケーションにしたい！</p>
+<h2 id="想定される挙動"><a class="header" href="#想定される挙動">想定される挙動</a></h2>
+<ul>
+<li>画面上のHTML要素（DOM）をクリックして処理を実行！</li>
+<li>要素を「指定」する！</li>
+<li>classやidでDOMを特定する．</li>
+<li>指定したDOMに対してJavaScriptで操作を行う！</li>
+</ul>
+<h3 id="例"><a class="header" href="#例">例</a></h3>
+<ul>
+<li>「<code>id</code>が<code>button</code>」の要素を「クリック」したら．．．</li>
+<li>「大吉-大凶のどれかをランダムに表示」！</li>
+</ul>
+<h3 id="参考dom"><a class="header" href="#参考dom">参考（DOM）</a></h3>
+<blockquote>
+<p>HTMLに記述されている各要素のこと（document object model）</p>
+</blockquote>
+<h2 id="基本の3要素"><a class="header" href="#基本の3要素">基本の3要素</a></h2>
+<ul>
+<li>selector（どこを）</li>
+<li>event（いつ）</li>
+<li>method（どうする）</li>
+</ul>
+<p><img src="js/js01/./img/20210622123450.png" alt="dom3要素" /></p>
+<p>なんだけど．．．</p>
+<pre><code>＿人人人人人人人人人人人人人人＿
+＞　JavaScriptはDOM操作が苦手　＜
+￣Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^Y^￣
+</code></pre>
+<h2 id="jqueryライブラリ"><a class="header" href="#jqueryライブラリ">jQueryライブラリ</a></h2>
+<h3 id="jqueryとは"><a class="header" href="#jqueryとは">jQueryとは</a></h3>
+<ul>
+<li>セレクタをcssと同じ要領で指定できる．</li>
+<li>素のJavaScriptよりも短く書ける！</li>
+<li>アニメーションなど手軽に設定できる．</li>
+<li>書き方（順序や考え方）はJavaScriptと同様！</li>
+<li>導入が簡単（フレームワークなどは環境構築で詰む）</li>
+</ul>
+<p><a href="https://webkikaku.co.jp/homepage/blog/hpseisaku/webdesign/jquery_start/">【参考】https://webkikaku.co.jp/homepage/blog/hpseisaku/webdesign/jquery_start/</a></p>
+<h3 id="-key-point-6"><a class="header" href="#-key-point-6">💡 Key Point</a></h3>
+<blockquote>
+<p>jQueryはJavaScriptのDOM操作を短縮して書けるライブラリ</p>
+</blockquote>
+<h3 id="補足-2"><a class="header" href="#補足-2">補足</a></h3>
+<blockquote>
+<p>ライブラリは他の開発者がつくったコードを利用させてもらうイメージ．手間のかかる処理を一発で書けるように実装してくれている．</p>
+</blockquote>
+<h3 id="ライブラリ読み込み"><a class="header" href="#ライブラリ読み込み">ライブラリ読み込み</a></h3>
+<p>（jQueryに限らず）ライブラリはソースコードの読み込みが必要！！</p>
+<p>（読み込みのコードは毎回同じなのでコピペでOK！）</p>
+<pre><code class="language-html">&lt;!-- 🔽 ここで読み込み 🔽 --&gt;
+&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;script&gt;
+  // 自分で書いた処理
+&lt;/script&gt;
+</code></pre>
+<h3 id="-key-point-7"><a class="header" href="#-key-point-7">💡 Key Point</a></h3>
+<blockquote>
+<p>ライブラリを使用する場合は「自分で書くJavaScriptより上の行で」読み込むこと．ライブラリで決められた関数を実行しようとして，読み込みが終わっていない状態だとエラーになってしまう．</p>
+</blockquote>
+<h2 id="jqueryの書き方と動き方"><a class="header" href="#jqueryの書き方と動き方">jQueryの書き方と動き方</a></h2>
+<p>基本の考え方はJavaScriptと全く同じッ！</p>
+<p><img src="js/js01/./img/20210622123450.png" alt="dom3要素" /></p>
+<h3 id="コード例"><a class="header" href="#コード例">コード例</a></h3>
+<ul>
+<li><code>id</code>が<code>button</code>の要素を</li>
+<li>クリックしたときに</li>
+<li>アラートを出す</li>
+</ul>
+<pre><code class="language-js">$('#button').on('click', function () {
+  alert('Hello World!');
+});
+
+</code></pre>
+<p>コード内でそれぞれ以下の場所で指定している．</p>
+<pre><code class="language-js">$(`セレクタ名`).on(`イベント名`, function () {
+  `実行したい処理（メソッド）`
+});
+
+</code></pre>
+<p>今回は<code>id</code>で指定しているが，セレクタの指定方法はたくさんある．イベントもたくさんある．</p>
+<ul>
+<li>「<code>jQuery セレクタ</code>」でググる！</li>
+<li>「<code>jQuery イベント</code>」でググる！</li>
+</ul>
+<h2 id="まずは形の入力に慣れよう"><a class="header" href="#まずは形の入力に慣れよう">まずは形の入力に慣れよう！</a></h2>
+<p>いろいろな処理を書く前に，形の入力に慣れることが大事！！（慣れないとしょうもないスペルミスで時間溶かす）</p>
+<pre><code class="language-js">$('#id').on('click', function () {
+  // ...
+});
+
+</code></pre>
+<h3 id="喋りながら書くと定着する本当"><a class="header" href="#喋りながら書くと定着する本当">喋りながら書くと定着する（本当）</a></h3>
+<blockquote>
+<p>だらーあいでぃーおんくりっくふぁんくしょんかっこかっこなみかっこえんたー...</p>
+</blockquote>
+<h2 id="練習-3"><a class="header" href="#練習-3">練習</a></h2>
+<p>おみくじアプリケーションを完成させよう！</p>
+<h3 id="仕様"><a class="header" href="#仕様">仕様</a></h3>
+<ul>
+<li>「おみくじを引くボタン」をクリックしたら以下のどれかを画面に表示！</li>
+<li>「大吉・中吉・小吉・凶・大凶」</li>
+</ul>
+<h3 id="ヒント-1"><a class="header" href="#ヒント-1">ヒント</a></h3>
+<p>下記の流れで考えよう！</p>
+<ul>
+<li>ボタンをクリックしたらなにかする．</li>
+<li>ランダムな数値を発生させる．</li>
+<li>条件分岐をつくって，対応する「大吉，中吉，...」を画面に表示させる．</li>
+</ul>
+<pre><code class="language-js">$('#button').on('click', function () {
+  // 0から4でランダムな数を作成
+  // 0だったら大吉，1だったら中吉．．．
+  // 結果をidで指定した場所に表示
+});
+
+</code></pre>
+<div id="chapter_begin" style="break-before: page; page-break-before: always;"></div><h1 id="課題"><a class="header" href="#課題">課題</a></h1>
+<p><strong>じゃんけんアプリを実装！！！！！</strong></p>
+<h2 id="じゃんけんアプリの仕様"><a class="header" href="#じゃんけんアプリの仕様">じゃんけんアプリの仕様</a></h2>
+<ol>
+<li>「グー」「チョキ」「パー」のボタンを設置</li>
+<li>どれかをクリックしたら「コンピュータの出した手は？」を変更
+<ul>
+<li>「コンピュータ：グー」「コンピュータ：チョキ」など</li>
+</ul>
+</li>
+<li>「結果は？」の箇所に
+<ul>
+<li>「あなたの負け」「あなたの勝ち」「あいこ」のどれかを表示！</li>
+</ul>
+</li>
+</ol>
+<p>※上記を最低ラインとして製作</p>
+<p>※これを土台にしてガンガン発展させよう！！</p>
+<h2 id="課題に対する考え方"><a class="header" href="#課題に対する考え方">課題に対する考え方</a></h2>
+<table><thead><tr><th>✅</th><th>❎</th></tr></thead><tbody>
+<tr><td>オリジナリティを表現する</td><td>誰かに言われたものを作る</td></tr>
+<tr><td>プロダクトを創る</td><td>プログラムを書く</td></tr>
+<tr><td><strong>自分が好きなものをつくる</strong></td><td>受けが良さそうなものをつくる</td></tr>
+</tbody></table>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>

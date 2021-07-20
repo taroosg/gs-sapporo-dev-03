@@ -1,0 +1,326 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>変数と計算 - bootcamp-master</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../favicon.png">
+        
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../note/index.html"><strong aria-hidden="true">1.</strong> 講義資料ノート</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../note/about.html"><strong aria-hidden="true">1.1.</strong> 受講時の注意</a></li><li class="chapter-item expanded "><a href="../note/with-code.html"><strong aria-hidden="true">1.2.</strong> コードに向き合いやすくなる考え方</a></li><li class="chapter-item expanded "><a href="../note/for-work.html"><strong aria-hidden="true">1.3.</strong> 課題にチャレンジするコツ</a></li></ol></li><li class="chapter-item expanded "><a href="../js/index.html"><strong aria-hidden="true">2.</strong> JavaScript</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../js/js01/index.html"><strong aria-hidden="true">2.1.</strong> JS_おみくじ</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../js/index.html"><strong aria-hidden="true">2.1.1.</strong> JavaScriptとは</a></li><li class="chapter-item expanded "><a href="../components/variable.html" class="active"><strong aria-hidden="true">2.1.2.</strong> 変数と計算</a></li><li class="chapter-item expanded "><a href="../components/random.html"><strong aria-hidden="true">2.1.3.</strong> ランダムな数（乱数）をつくる</a></li><li class="chapter-item expanded "><a href="../components/if.html"><strong aria-hidden="true">2.1.4.</strong> 条件分岐</a></li><li class="chapter-item expanded "><a href="../js/js01/omikuji.html"><strong aria-hidden="true">2.1.5.</strong> おみくじのWebアプリ実装</a></li><li class="chapter-item expanded "><a href="../js/js01/work.html"><strong aria-hidden="true">2.1.6.</strong> 課題</a></li></ol></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">bootcamp-master</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="変数と計算"><a class="header" href="#変数と計算">変数と計算</a></h1>
+<h3 id="変数とは"><a class="header" href="#変数とは">変数とは</a></h3>
+<p>「変数」は文字列や数値に名前をつけて，後から使用できるようにするもの．</p>
+<p>プログラミングでは，ある部分で計算などして導出した値を別の部分で使用することが多い．</p>
+<p>その際，毎回同じ計算を行うと不便であるため，1回計算した結果に名前をつけておき別の部分でそのまま使えるようにする．</p>
+<h3 id="-key-point"><a class="header" href="#-key-point">💡 Key Point</a></h3>
+<blockquote>
+<p>変数には自分で名前をつけるが，「何の値なのか」がわかるように名前をつけることが極めて重要！！</p>
+</blockquote>
+<h3 id="変数のルール"><a class="header" href="#変数のルール">変数のルール</a></h3>
+<p>プログラミングで使用する値には「数値」「文字列」などの型が存在する．</p>
+<ul>
+<li>「数値」は数学で扱う数と同様に計算できる．</li>
+<li>「文字列」は開発者が決めたメッセージやキーワードなどである．英語でも日本語でも扱うことができ，<code>'</code>（シングルクォーテーション）か<code>&quot;</code>（ダブルクオーテーション）で囲む必要がある．</li>
+<li>変数名の先頭が数字になるパターンはNG！</li>
+</ul>
+<pre><code class="language-js">const number1 = 100;
+const number2 = 200;
+const text1 = 'hello';
+const text2 = 'world';
+const 3text = 'JavaScript'; // NG
+
+</code></pre>
+<h3 id="-key-point-1"><a class="header" href="#-key-point-1">💡 Key Point</a></h3>
+<blockquote>
+<p>シングルクォーテーションとダブルクオーテーションはどちらでも良いが統一しよう！</p>
+</blockquote>
+<h2 id="数値の計算"><a class="header" href="#数値の計算">数値の計算</a></h2>
+<p>数値は数学と同様に四則演算を行うことができる．</p>
+<pre><code class="language-js">const number1 = 1 + 9;    // 10
+const number2 = 1 - 5;    // -4
+const number3 = 2 * 4;    //  8
+const number4 = 10 / 2;   //  5
+const number5 = 10 % 3;   //  1
+
+</code></pre>
+<h2 id="文字列の結合"><a class="header" href="#文字列の結合">文字列の結合</a></h2>
+<p>文字列は「<code>+</code>」の計算を行うことができる．この場合は数学と異なり，前後の文字列が連結される．</p>
+<pre><code class="language-js">const number1 = 100;
+const number2 = 200;
+const text1 = 'hello';
+const text2 = 'world';
+const sum1 = number1 + number2;   // 300
+const sum2 = text1 + text2;   // helloworld
+
+</code></pre>
+<h3 id="-key-point-2"><a class="header" href="#-key-point-2">💡 Key Point</a></h3>
+<blockquote>
+<p><code>1</code>と<code>'1'</code>は異なるッ！</p>
+</blockquote>
+<h2 id="ngワード"><a class="header" href="#ngワード">NGワード</a></h2>
+<p>変数名には使用できない単語が存在する</p>
+<p>構文で使用するもの，将来的に使われるもの，など</p>
+<ul>
+<li>「<code>if</code>」「<code>for</code>」など</li>
+</ul>
+<p>このような単語は「予約語」と呼ばれる．</p>
+<ul>
+<li>「MDN javascript 予約語」で検索！！</li>
+<li>引っかかる場合は少ないので今は気にしなくてOK！</li>
+</ul>
+<h2 id="練習"><a class="header" href="#練習">練習</a></h2>
+<h3 id="以下の処理をjavascriptで実装しよう"><a class="header" href="#以下の処理をjavascriptで実装しよう">以下の処理をJavaScriptで実装しよう！</a></h3>
+<ul>
+<li>「<code>100</code>」と「<code>200</code>」の数値をそれぞれ変数に入れ，加算した結果を<code>alert()</code>で表示．</li>
+<li>「<code>G's</code>」と「<code>ACADEMY</code>」の文字列をそれぞれ変数に入れ，つなげて<code>alert()</code>で表示．</li>
+<li><code>js_practice.html</code>に記述しよう！</li>
+</ul>
+<h3 id="動作確認"><a class="header" href="#動作確認">動作確認</a></h3>
+<p>それぞれ「300」と「G'sACADEMY」が表示されればOK！</p>
+<h2 id="補足"><a class="header" href="#補足">補足</a></h2>
+<blockquote>
+<p>JavaScriptにおける変数の定義には「<code>const</code>」「<code>let</code>」「<code>var</code>」の3種類が存在する．</p>
+<p>基本的には<code>const</code>を使用し，どうしてもな場合に<code>let</code>を使用すれば良いだろう．</p>
+<pre><code class="language-js">const hoge = 100;
+const hoge = 200;   // エラー（同じ名前で定義するのはNG）
+hoge = 300;   // エラー（異なる値を入れ直すのはNG）
+
+// 後から上書きできる変数
+let fuga = 1000;
+let fuga = 2000;    // エラー（同じ名前で定義するのはNG）
+foo = 3000;   // OK（予期せぬ値が入ってしまう場合があるので注意）
+
+// むかしあったやつ（使わないほうが良い）
+var piyo = 99999;
+var piyo = 88888;   // OK（あぶない）
+piyo = 77777;   // OK（あぶない）
+
+</code></pre>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../js/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../components/random.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../js/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../components/random.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
