@@ -23,13 +23,13 @@
     - [おみくじのWebアプリ実装](./js/js01/omikuji.md)
     - [課題](./js/js01/work.md)
 
-  <!-- - [JS_メモパッド](./js/js02/README.md)
+  - [JS_メモパッド](./js/js02/README.md)
     - [配列](./components/array.md)
     - [繰り返し処理](./components/for.md)
     - [オブジェクト](./components/object.md)
     - [LocalStorage（メモ帳初級）](./js/js02/memopad01.md)
     - [JSONデータ（メモ帳中級）](./js/js02/memopad02.md)
-    - [課題](./js/js02/work.md) -->
+    - [課題](./js/js02/work.md)
 
   <!-- - [JS_Firebase](./js/js04/README.md)
     - [関数](./components/function.md)
