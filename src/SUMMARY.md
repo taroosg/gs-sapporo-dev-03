@@ -31,7 +31,7 @@
     - [JSONデータ（メモ帳中級）](./js/js02/memopad02.md)
     - [課題](./js/js02/work.md)
 
-  <!-- - [JS_Firebase](./js/js04/README.md)
+  - [JS_Firebase](./js/js04/README.md)
     - [関数](./components/function.md)
     - [リアルタイムチャットの実装](./js/js04/chat-app.md)
     - [Firebaseの準備1（プロジェクトの作成）](./js/js04/firebase-project.md)
@@ -40,7 +40,7 @@
     - [チャット画面の実装とデータの送信](./js/js04/chat-create.md)
     - [データのリアルタイム取得と画面表示](./js/js04/chat-read.md)
     - [機能追加](./js/js04/optimize.md)
-    - [課題と提出時の注意点](./js/js04/work.md) -->
+    - [課題と提出時の注意点](./js/js04/work.md)
 
   <!-- - [JS_API](./js/js05/README.md)
 
