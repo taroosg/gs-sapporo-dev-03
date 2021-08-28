@@ -1,0 +1,280 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>APIとは - G's-Sapporo-Dev03</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../../favicon.png">
+        
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../note/index.html"><strong aria-hidden="true">1.</strong> 講義資料ノート</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../note/about.html"><strong aria-hidden="true">1.1.</strong> 受講時の注意</a></li><li class="chapter-item expanded "><a href="../../note/with-code.html"><strong aria-hidden="true">1.2.</strong> コードに向き合いやすくなる考え方</a></li><li class="chapter-item expanded "><a href="../../note/for-work.html"><strong aria-hidden="true">1.3.</strong> 課題にチャレンジするコツ</a></li></ol></li><li class="chapter-item expanded "><a href="../../js/index.html"><strong aria-hidden="true">2.</strong> JavaScript</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../js/js01/index.html"><strong aria-hidden="true">2.1.</strong> JS_おみくじ</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../js/index.html"><strong aria-hidden="true">2.1.1.</strong> JavaScriptとは</a></li><li class="chapter-item expanded "><a href="../../components/variable.html"><strong aria-hidden="true">2.1.2.</strong> 変数と計算</a></li><li class="chapter-item expanded "><a href="../../components/random.html"><strong aria-hidden="true">2.1.3.</strong> ランダムな数（乱数）をつくる</a></li><li class="chapter-item expanded "><a href="../../components/if.html"><strong aria-hidden="true">2.1.4.</strong> 条件分岐</a></li><li class="chapter-item expanded "><a href="../../js/js01/omikuji.html"><strong aria-hidden="true">2.1.5.</strong> おみくじのWebアプリ実装</a></li><li class="chapter-item expanded "><a href="../../js/js01/work.html"><strong aria-hidden="true">2.1.6.</strong> 課題</a></li></ol></li><li class="chapter-item expanded "><a href="../../js/js02/index.html"><strong aria-hidden="true">2.2.</strong> JS_メモパッド</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../components/array.html"><strong aria-hidden="true">2.2.1.</strong> 配列</a></li><li class="chapter-item expanded "><a href="../../components/for.html"><strong aria-hidden="true">2.2.2.</strong> 繰り返し処理</a></li><li class="chapter-item expanded "><a href="../../components/object.html"><strong aria-hidden="true">2.2.3.</strong> オブジェクト</a></li><li class="chapter-item expanded "><a href="../../js/js02/memopad01.html"><strong aria-hidden="true">2.2.4.</strong> LocalStorage（メモ帳初級）</a></li><li class="chapter-item expanded "><a href="../../js/js02/memopad02.html"><strong aria-hidden="true">2.2.5.</strong> JSONデータ（メモ帳中級）</a></li><li class="chapter-item expanded "><a href="../../js/js02/work.html"><strong aria-hidden="true">2.2.6.</strong> 課題</a></li></ol></li><li class="chapter-item expanded "><a href="../../js/js04/index.html"><strong aria-hidden="true">2.3.</strong> JS_Firebase</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../components/function.html"><strong aria-hidden="true">2.3.1.</strong> 関数</a></li><li class="chapter-item expanded "><a href="../../js/js04/chat-app.html"><strong aria-hidden="true">2.3.2.</strong> リアルタイムチャットの実装</a></li><li class="chapter-item expanded "><a href="../../js/js04/firebase-project.html"><strong aria-hidden="true">2.3.3.</strong> Firebaseの準備1（プロジェクトの作成）</a></li><li class="chapter-item expanded "><a href="../../js/js04/firebase-js.html"><strong aria-hidden="true">2.3.4.</strong> Firebaseの準備2（ソースコードの準備）</a></li><li class="chapter-item expanded "><a href="../../js/js04/firebase-db.html"><strong aria-hidden="true">2.3.5.</strong> Firebaseの準備3（データベースの準備）</a></li><li class="chapter-item expanded "><a href="../../js/js04/chat-create.html"><strong aria-hidden="true">2.3.6.</strong> チャット画面の実装とデータの送信</a></li><li class="chapter-item expanded "><a href="../../js/js04/chat-read.html"><strong aria-hidden="true">2.3.7.</strong> データのリアルタイム取得と画面表示</a></li><li class="chapter-item expanded "><a href="../../js/js04/optimize.html"><strong aria-hidden="true">2.3.8.</strong> 機能追加</a></li><li class="chapter-item expanded "><a href="../../js/js04/work.html"><strong aria-hidden="true">2.3.9.</strong> 課題と提出時の注意点</a></li></ol></li><li class="chapter-item expanded "><a href="../../js/js05/index.html"><strong aria-hidden="true">2.4.</strong> JS_API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../js/js05/about-api.html" class="active"><strong aria-hidden="true">2.4.1.</strong> APIとは</a></li><li class="chapter-item expanded "><a href="../../js/js05/booksapi.html"><strong aria-hidden="true">2.4.2.</strong> GoogleBooksAPI</a></li><li class="chapter-item expanded "><a href="../../js/js05/geolocation.html"><strong aria-hidden="true">2.4.3.</strong> 位置情報の活用</a></li><li class="chapter-item expanded "><a href="../../js/js05/bingmapsapi-setup.html"><strong aria-hidden="true">2.4.4.</strong> BingMapsAPI/準備</a></li><li class="chapter-item expanded "><a href="../../js/js05/bingmapsapi-map.html"><strong aria-hidden="true">2.4.5.</strong> BingMapsAPI/実践</a></li><li class="chapter-item expanded "><a href="../../js/js05/bingmapsapi-pin.html"><strong aria-hidden="true">2.4.6.</strong> 【おまけ】BingMapsAPI/機能追加</a></li><li class="chapter-item expanded "><a href="../../js/js05/other-api.html"><strong aria-hidden="true">2.4.7.</strong> その他のAPI紹介</a></li><li class="chapter-item expanded "><a href="../../js/js05/work.html"><strong aria-hidden="true">2.4.8.</strong> 課題</a></li></ol></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">G's-Sapporo-Dev03</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="apiとは"><a class="header" href="#apiとは">APIとは</a></h1>
+<h2 id="apiの意味合い"><a class="header" href="#apiの意味合い">APIの意味合い</a></h2>
+<p>Application Programming Interfaceの略．</p>
+<p>あるアプリケーション（例えばGoogle MapやTwitterなど）の一部を外部に向けて公開することにより，第三者が開発したソフトウェアに機能を組み込めるようにしたものである．</p>
+<p>世の中に存在するサービスの機能の一部を使わせてもらえるイメージ！</p>
+<blockquote>
+<p>Interface</p>
+<ul>
+<li>Interfaceは「あるもの」と「あるもの」をつなぐもの，という意味合い．</li>
+<li>今回は（すでに動いている）アプリケーションと（開発者が実装する）プログラムをつなぐ．</li>
+</ul>
+</blockquote>
+<h2 id="apiの一例"><a class="header" href="#apiの一例">APIの一例</a></h2>
+<table><thead><tr><th>API名</th><th>概要</th></tr></thead><tbody>
+<tr><td>Bing Maps API</td><td>リクエストに応じてブラウザに地図を表示したり，ルート検索したりする．</td></tr>
+<tr><td>Google Books API</td><td>Google Booksが持っている書籍の情報から，キーワードなど指定してデータ- を返す．</td></tr>
+<tr><td>Open Weather Map API</td><td>都市名や緯度経度を指定して，その日の天気や天気予報の情報を返す．</td></tr>
+</tbody></table>
+<h2 id="apiの利点"><a class="header" href="#apiの利点">APIの利点</a></h2>
+<ul>
+<li>他社のデータを利用できる！</li>
+<li>自分で作らなくて良いので開発速度がアップ！</li>
+<li>いろいろなAPIを組み合わせてアプリケーションを実装できる！</li>
+</ul>
+<h2 id="動き方のイメージ"><a class="header" href="#動き方のイメージ">動き方のイメージ</a></h2>
+<p>基本は「リクエスト」と「レスポンス」！</p>
+<p>API（外部のサーバ）にJavaScriptでリクエスト（要求）を送信し，API側にデータを返してもらったり処理を実行してもらったりする．</p>
+<p>Webアプリケーションのサーバ側の処理をAPIに行ってもらうイメージ！</p>
+<p><img src="./img/js_api_about_api.svg" alt="APIの動き方" /></p>
+<h3 id="apiにリクエストを送信してデータをもらうタイプこちらが一般的"><a class="header" href="#apiにリクエストを送信してデータをもらうタイプこちらが一般的">APIにリクエストを送信してデータをもらうタイプ（こちらが一般的）</a></h3>
+<p>検索条件などを指定して，条件に合う情報を送ってもらう．</p>
+<table><thead><tr><th>API</th><th>送信するデータ</th><th>受け取れるデータ</th></tr></thead><tbody>
+<tr><td>Google Gooks API</td><td>本のタイトルに含まれるキーワード，著者，出版社，出版年，etc...</td><td>条件に該当する本のデータ</td></tr>
+<tr><td>Open Weather Map API</td><td>都市名，緯度経度，etc</td><td>現在の気象情報，一週間分の天気予報，etc...</td></tr>
+<tr><td>テキスト解析</td><td>テキストデータ</td><td>テキストの感情データ，要，約，etc...</td></tr>
+<tr><td>画像認識</td><td>画像データ</td><td>画像に映っているもの名称，位置，etc...</td></tr>
+<tr><td>音声認識</td><td>音声データ</td><td>音声を文字起こししたテキスト</td></tr>
+</tbody></table>
+<h3 id="apiに定められたコードを実行してブラウザを操作してもらうタイプ"><a class="header" href="#apiに定められたコードを実行してブラウザを操作してもらうタイプ">APIに定められたコードを実行してブラウザを操作してもらうタイプ</a></h3>
+<p>条件を指定して，実際にブラウザ表示などをやってもらう．</p>
+<table><thead><tr><th>API</th><th>やってもらえること</th></tr></thead><tbody>
+<tr><td>Bing Maps API</td><td>場所などを指定して地図を表示，ルート検索，住所を緯度経度に変換，etc...</td></tr>
+<tr><td>Google Maps API</td><td>地図表示，ストリートビュー表示，etc...</td></tr>
+</tbody></table>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../js/js05/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../js/js05/booksapi.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../../js/js05/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../../js/js05/booksapi.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
