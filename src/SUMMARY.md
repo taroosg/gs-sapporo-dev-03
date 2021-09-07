@@ -56,9 +56,9 @@
   <!-- - [JS修練場](./js/js06/README.md) -->
     <!-- - [例題](./js/js06/example.md) -->
 
-<!-- - [PHP](./php/README.md) -->
+- [PHP](./php/README.md)
 
-  <!-- - [PHP事前準備](./php/php_setup/README.md) -->
+  - [PHP事前準備](./php/php_setup/README.md)
 
   <!-- - [PHP基礎](./php/php01/README.md)
 

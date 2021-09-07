@@ -53,6 +53,10 @@ xamppは以下の役割を提供する．
 
 [https://www.apachefriends.org/jp/download.html](https://www.apachefriends.org/jp/download.html)
 
+>**！！注意！！**
+>
+>資料作成時時点では`7.3.6 / PHP 7.3.6`となっているが，現時点（2021/09/06）では`8.0.9 / PHP 8.0.9`が最新なのでこちらを用いること！！
+
 ↓アクセス画面
 ![xamppダウンロード画面](./img/php_setup_xampp_download_01.svg)
 
