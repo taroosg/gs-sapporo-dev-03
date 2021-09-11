@@ -60,7 +60,7 @@
 
   - [PHP事前準備](./php/php_setup/README.md)
 
-  <!-- - [PHP基礎](./php/php01/README.md)
+  - [PHP基礎](./php/php01/README.md)
 
     - [PHP概要](./php/php01/about-php.md)
     - [開発の手順](./php/php01/get-started.md)
@@ -68,7 +68,7 @@
     - [クライアント - サーバ間の通信](./php/php01/get-post.md)
     - [ファイル操作（書き込み）](./php/php01/write-file.md)
     - [ファイル操作（読み込み）](./php/php01/read-file.md)
-    - [課題](./php/php01/work.md) -->
+    - [課題](./php/php01/work.md)
 
   <!-- - [PHP_DB連携_CRUD処理前半](./php/php02/README.md)
 
