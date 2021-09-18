@@ -70,14 +70,14 @@
     - [ファイル操作（読み込み）](./php/php01/read-file.md)
     - [課題](./php/php01/work.md)
 
-  <!-- - [PHP_DB連携_CRUD処理前半](./php/php02/README.md)
+  - [PHP_DB連携_CRUD処理前半](./php/php02/README.md)
 
     - [DBの基本](./php/php02/about-db.md)
     - [DB / テーブルの作成](./php/php02/start-db.md)
     - [SQLによるDB操作](./php/php02/db-sql.md)
     - [PHPとDBの連携1（データ作成処理）](./php/php02/sql-create.md)
     - [PHPとDBの連携2（データ参照処理）](./php/php02/sql-read.md)
-    - [課題と提出時の注意点](./php/php02/work.md) -->
+    - [課題と提出時の注意点](./php/php02/work.md)
 
   <!-- - [PHP_DB連携_CRUD処理後半](./php/php03/README.md)
 
