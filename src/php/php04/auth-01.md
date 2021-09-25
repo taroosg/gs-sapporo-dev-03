@@ -2,7 +2,7 @@
 
 ## 必要なファイル
 
-ログイン処理に`todo_login.php`と`todo_login.php`，ログアウト処理に`todo_logout.php`を使用する．
+ログイン処理に`todo_login.php`と`todo_login_act.php`，ログアウト処理に`todo_logout.php`を使用する．
 
 |file|役割|
 |-|-|
