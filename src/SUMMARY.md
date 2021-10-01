@@ -4,9 +4,9 @@
   - [受講時の注意](./note/about.md)
   - [コードに向き合いやすくなる考え方](./note/with-code.md)
   - [課題にチャレンジするコツ](./note/for-work.md)
-  <!-- - [課題提出](./note/work-post.md) -->
-  <!-- - [プログラミングのおもしろさ](./note/why-programming-is-intersting.md) -->
-  <!-- - [時間をコミットせよ](./note/commit-time.md) -->
+    <!-- - [課題提出](./note/work-post.md) -->
+    <!-- - [プログラミングのおもしろさ](./note/why-programming-is-intersting.md) -->
+    <!-- - [時間をコミットせよ](./note/commit-time.md) -->
 
 <!-- - [HTML&CSS](./html_css/README.md) -->
   <!-- - [HTML](./html_css/html.md)
@@ -15,28 +15,32 @@
   - [演習](./html_css/work.md) -->
 
 - [JavaScript](./js/README.md)
-  - [JS_おみくじ](./js/js01/README.md)
-    - [JavaScriptとは](./js/README.md)
+
+  - [JS\_おみくじ](./js/js01/README.md)
+
+    - [JavaScript とは](./js/README.md)
     - [変数と計算](./components/variable.md)
     - [ランダムな数（乱数）をつくる](./components/random.md)
     - [条件分岐](./components/if.md)
-    - [おみくじのWebアプリ実装](./js/js01/omikuji.md)
+    - [おみくじの Web アプリ実装](./js/js01/omikuji.md)
     - [課題](./js/js01/work.md)
 
-  - [JS_メモパッド](./js/js02/README.md)
+  - [JS\_メモパッド](./js/js02/README.md)
+
     - [配列](./components/array.md)
     - [繰り返し処理](./components/for.md)
     - [オブジェクト](./components/object.md)
     - [LocalStorage（メモ帳初級）](./js/js02/memopad01.md)
-    - [JSONデータ（メモ帳中級）](./js/js02/memopad02.md)
+    - [JSON データ（メモ帳中級）](./js/js02/memopad02.md)
     - [課題](./js/js02/work.md)
 
   - [JS_Firebase](./js/js04/README.md)
+
     - [関数](./components/function.md)
     - [リアルタイムチャットの実装](./js/js04/chat-app.md)
-    - [Firebaseの準備1（プロジェクトの作成）](./js/js04/firebase-project.md)
-    - [Firebaseの準備2（ソースコードの準備）](./js/js04/firebase-js.md)
-    - [Firebaseの準備3（データベースの準備）](./js/js04/firebase-db.md)
+    - [Firebase の準備 1（プロジェクトの作成）](./js/js04/firebase-project.md)
+    - [Firebase の準備 2（ソースコードの準備）](./js/js04/firebase-js.md)
+    - [Firebase の準備 3（データベースの準備）](./js/js04/firebase-db.md)
     - [チャット画面の実装とデータの送信](./js/js04/chat-create.md)
     - [データのリアルタイム取得と画面表示](./js/js04/chat-read.md)
     - [機能追加](./js/js04/optimize.md)
@@ -44,13 +48,13 @@
 
   - [JS_API](./js/js05/README.md)
 
-    - [APIとは](./js/js05/about-api.md)
+    - [API とは](./js/js05/about-api.md)
     - [GoogleBooksAPI](./js/js05/booksapi.md)
     - [位置情報の活用](./js/js05/geolocation.md)
     - [BingMapsAPI/準備](./js/js05/bingmapsapi-setup.md)
     - [BingMapsAPI/実践](./js/js05/bingmapsapi-map.md)
     - [【おまけ】BingMapsAPI/機能追加](./js/js05/bingmapsapi-pin.md)
-    - [その他のAPI紹介](./js/js05/other-api.md)
+    - [その他の API 紹介](./js/js05/other-api.md)
     - [課題](./js/js05/work.md)
 
   <!-- - [JS修練場](./js/js06/README.md) -->
@@ -58,42 +62,42 @@
 
 - [PHP](./php/README.md)
 
-  - [PHP事前準備](./php/php_setup/README.md)
+  - [PHP 事前準備](./php/php_setup/README.md)
 
-  - [PHP基礎](./php/php01/README.md)
+  - [PHP 基礎](./php/php01/README.md)
 
-    - [PHP概要](./php/php01/about-php.md)
+    - [PHP 概要](./php/php01/about-php.md)
     - [開発の手順](./php/php01/get-started.md)
-    - [PHP基礎](./php/php01/php-start.md)
+    - [PHP 基礎](./php/php01/php-start.md)
     - [クライアント - サーバ間の通信](./php/php01/get-post.md)
     - [ファイル操作（書き込み）](./php/php01/write-file.md)
     - [ファイル操作（読み込み）](./php/php01/read-file.md)
     - [課題](./php/php01/work.md)
 
-  - [PHP_DB連携_CRUD処理前半](./php/php02/README.md)
+  - [PHP_DB 連携\_CRUD 処理前半](./php/php02/README.md)
 
-    - [DBの基本](./php/php02/about-db.md)
+    - [DB の基本](./php/php02/about-db.md)
     - [DB / テーブルの作成](./php/php02/start-db.md)
-    - [SQLによるDB操作](./php/php02/db-sql.md)
-    - [PHPとDBの連携1（データ作成処理）](./php/php02/sql-create.md)
-    - [PHPとDBの連携2（データ参照処理）](./php/php02/sql-read.md)
+    - [SQL による DB 操作](./php/php02/db-sql.md)
+    - [PHP と DB の連携 1（データ作成処理）](./php/php02/sql-create.md)
+    - [PHP と DB の連携 2（データ参照処理）](./php/php02/sql-read.md)
     - [課題と提出時の注意点](./php/php02/work.md)
 
-  - [PHP_DB連携_CRUD処理後半](./php/php03/README.md)
+  - [PHP_DB 連携\_CRUD 処理後半](./php/php03/README.md)
 
-    - [DB接続関数の作成](./php/php03/function-db-connect.md)
-    - [PHPとDBの連携3（編集画面の作成）](./php/php03/sql-edit.md)
-    - [PHPとDBの連携4（データ更新処理の作成）](./php/php03/sql-update.md)
-    - [PHPとDBの連携5（データ削除処理）](./php/php03/sql-delete.md)
+    - [DB 接続関数の作成](./php/php03/function-db-connect.md)
+    - [PHP と DB の連携 3（編集画面の作成）](./php/php03/sql-edit.md)
+    - [PHP と DB の連携 4（データ更新処理の作成）](./php/php03/sql-update.md)
+    - [PHP と DB の連携 5（データ削除処理）](./php/php03/sql-delete.md)
     - [課題](./php/php03/work.md)
 
-  <!-- - [PHP_セッション](./php/php04/README.md)
+  - [PHP\_セッション](./php/php04/README.md)
 
     - [セッションとは](./php/php04/about-session.md)
     - [セッション変数](./php/php04/session-variables.md)
-    - [認証処理の実装1（ログインとログアウト）](./php/php04/auth-01.md)
-    - [認証処理の実装2（認証状態の確認）](./php/php04/auth-02.md)
-    - [課題](./php/php04/work.md) -->
+    - [認証処理の実装 1（ログインとログアウト）](./php/php04/auth-01.md)
+    - [認証処理の実装 2（認証状態の確認）](./php/php04/auth-02.md)
+    - [課題](./php/php04/work.md)
 
   <!-- - [PHP_DB応用_RDB](./php/php05/README.md)
 
@@ -162,7 +166,6 @@
     - [ロリポップマネージドクラウドとGitHubのSSH通信設定](./laravel/deploy/lolipop-to-github.md)
     - [GitHub上のコードをマネージドクラウドにデプロイ](./laravel/deploy/github-to-lolipop.md) -->
 
-
 <!-- - [Git](./git/README.md)
 
   - [GUIとCLI](./git/cli.md)
@@ -175,4 +178,3 @@
     - [GitHubとの接続設定](./git/github-setup/connect-to-github.md)
   - [GitHubにプロダクトをpush](./git/github-init.md)
   - [GitHubに最新版をpush](./git/github-push.md) -->
-
