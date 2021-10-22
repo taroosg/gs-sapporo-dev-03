@@ -1,0 +1,405 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>ファイルアップロードと DB 連携 - G's-Sapporo-Dev03</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../../favicon.png">
+        
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../note/index.html"><strong aria-hidden="true">1.</strong> 講義資料ノート</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../note/about.html"><strong aria-hidden="true">1.1.</strong> 受講時の注意</a></li><li class="chapter-item expanded "><a href="../../note/with-code.html"><strong aria-hidden="true">1.2.</strong> コードに向き合いやすくなる考え方</a></li><li class="chapter-item expanded "><a href="../../note/for-work.html"><strong aria-hidden="true">1.3.</strong> 課題にチャレンジするコツ</a></li></ol></li><li class="chapter-item expanded "><a href="../../js/index.html"><strong aria-hidden="true">2.</strong> JavaScript</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../js/js01/index.html"><strong aria-hidden="true">2.1.</strong> JS_おみくじ</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../js/index.html"><strong aria-hidden="true">2.1.1.</strong> JavaScript とは</a></li><li class="chapter-item expanded "><a href="../../components/variable.html"><strong aria-hidden="true">2.1.2.</strong> 変数と計算</a></li><li class="chapter-item expanded "><a href="../../components/random.html"><strong aria-hidden="true">2.1.3.</strong> ランダムな数（乱数）をつくる</a></li><li class="chapter-item expanded "><a href="../../components/if.html"><strong aria-hidden="true">2.1.4.</strong> 条件分岐</a></li><li class="chapter-item expanded "><a href="../../js/js01/omikuji.html"><strong aria-hidden="true">2.1.5.</strong> おみくじの Web アプリ実装</a></li><li class="chapter-item expanded "><a href="../../js/js01/work.html"><strong aria-hidden="true">2.1.6.</strong> 課題</a></li></ol></li><li class="chapter-item expanded "><a href="../../js/js02/index.html"><strong aria-hidden="true">2.2.</strong> JS_メモパッド</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../components/array.html"><strong aria-hidden="true">2.2.1.</strong> 配列</a></li><li class="chapter-item expanded "><a href="../../components/for.html"><strong aria-hidden="true">2.2.2.</strong> 繰り返し処理</a></li><li class="chapter-item expanded "><a href="../../components/object.html"><strong aria-hidden="true">2.2.3.</strong> オブジェクト</a></li><li class="chapter-item expanded "><a href="../../js/js02/memopad01.html"><strong aria-hidden="true">2.2.4.</strong> LocalStorage（メモ帳初級）</a></li><li class="chapter-item expanded "><a href="../../js/js02/memopad02.html"><strong aria-hidden="true">2.2.5.</strong> JSON データ（メモ帳中級）</a></li><li class="chapter-item expanded "><a href="../../js/js02/work.html"><strong aria-hidden="true">2.2.6.</strong> 課題</a></li></ol></li><li class="chapter-item expanded "><a href="../../js/js04/index.html"><strong aria-hidden="true">2.3.</strong> JS_Firebase</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../components/function.html"><strong aria-hidden="true">2.3.1.</strong> 関数</a></li><li class="chapter-item expanded "><a href="../../js/js04/chat-app.html"><strong aria-hidden="true">2.3.2.</strong> リアルタイムチャットの実装</a></li><li class="chapter-item expanded "><a href="../../js/js04/firebase-project.html"><strong aria-hidden="true">2.3.3.</strong> Firebase の準備 1（プロジェクトの作成）</a></li><li class="chapter-item expanded "><a href="../../js/js04/firebase-js.html"><strong aria-hidden="true">2.3.4.</strong> Firebase の準備 2（ソースコードの準備）</a></li><li class="chapter-item expanded "><a href="../../js/js04/firebase-db.html"><strong aria-hidden="true">2.3.5.</strong> Firebase の準備 3（データベースの準備）</a></li><li class="chapter-item expanded "><a href="../../js/js04/chat-create.html"><strong aria-hidden="true">2.3.6.</strong> チャット画面の実装とデータの送信</a></li><li class="chapter-item expanded "><a href="../../js/js04/chat-read.html"><strong aria-hidden="true">2.3.7.</strong> データのリアルタイム取得と画面表示</a></li><li class="chapter-item expanded "><a href="../../js/js04/optimize.html"><strong aria-hidden="true">2.3.8.</strong> 機能追加</a></li><li class="chapter-item expanded "><a href="../../js/js04/work.html"><strong aria-hidden="true">2.3.9.</strong> 課題と提出時の注意点</a></li></ol></li><li class="chapter-item expanded "><a href="../../js/js05/index.html"><strong aria-hidden="true">2.4.</strong> JS_API</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../js/js05/about-api.html"><strong aria-hidden="true">2.4.1.</strong> API とは</a></li><li class="chapter-item expanded "><a href="../../js/js05/booksapi.html"><strong aria-hidden="true">2.4.2.</strong> GoogleBooksAPI</a></li><li class="chapter-item expanded "><a href="../../js/js05/geolocation.html"><strong aria-hidden="true">2.4.3.</strong> 位置情報の活用</a></li><li class="chapter-item expanded "><a href="../../js/js05/bingmapsapi-setup.html"><strong aria-hidden="true">2.4.4.</strong> BingMapsAPI/準備</a></li><li class="chapter-item expanded "><a href="../../js/js05/bingmapsapi-map.html"><strong aria-hidden="true">2.4.5.</strong> BingMapsAPI/実践</a></li><li class="chapter-item expanded "><a href="../../js/js05/bingmapsapi-pin.html"><strong aria-hidden="true">2.4.6.</strong> 【おまけ】BingMapsAPI/機能追加</a></li><li class="chapter-item expanded "><a href="../../js/js05/other-api.html"><strong aria-hidden="true">2.4.7.</strong> その他の API 紹介</a></li><li class="chapter-item expanded "><a href="../../js/js05/work.html"><strong aria-hidden="true">2.4.8.</strong> 課題</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../php/index.html"><strong aria-hidden="true">3.</strong> PHP</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../php/php_setup/index.html"><strong aria-hidden="true">3.1.</strong> PHP 事前準備</a></li><li class="chapter-item expanded "><a href="../../php/php01/index.html"><strong aria-hidden="true">3.2.</strong> PHP 基礎</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../php/php01/about-php.html"><strong aria-hidden="true">3.2.1.</strong> PHP 概要</a></li><li class="chapter-item expanded "><a href="../../php/php01/get-started.html"><strong aria-hidden="true">3.2.2.</strong> 開発の手順</a></li><li class="chapter-item expanded "><a href="../../php/php01/php-start.html"><strong aria-hidden="true">3.2.3.</strong> PHP 基礎</a></li><li class="chapter-item expanded "><a href="../../php/php01/get-post.html"><strong aria-hidden="true">3.2.4.</strong> クライアント - サーバ間の通信</a></li><li class="chapter-item expanded "><a href="../../php/php01/write-file.html"><strong aria-hidden="true">3.2.5.</strong> ファイル操作（書き込み）</a></li><li class="chapter-item expanded "><a href="../../php/php01/read-file.html"><strong aria-hidden="true">3.2.6.</strong> ファイル操作（読み込み）</a></li><li class="chapter-item expanded "><a href="../../php/php01/work.html"><strong aria-hidden="true">3.2.7.</strong> 課題</a></li></ol></li><li class="chapter-item expanded "><a href="../../php/php02/index.html"><strong aria-hidden="true">3.3.</strong> PHP_DB 連携_CRUD 処理前半</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../php/php02/about-db.html"><strong aria-hidden="true">3.3.1.</strong> DB の基本</a></li><li class="chapter-item expanded "><a href="../../php/php02/start-db.html"><strong aria-hidden="true">3.3.2.</strong> DB / テーブルの作成</a></li><li class="chapter-item expanded "><a href="../../php/php02/db-sql.html"><strong aria-hidden="true">3.3.3.</strong> SQL による DB 操作</a></li><li class="chapter-item expanded "><a href="../../php/php02/sql-create.html"><strong aria-hidden="true">3.3.4.</strong> PHP と DB の連携 1（データ作成処理）</a></li><li class="chapter-item expanded "><a href="../../php/php02/sql-read.html"><strong aria-hidden="true">3.3.5.</strong> PHP と DB の連携 2（データ参照処理）</a></li><li class="chapter-item expanded "><a href="../../php/php02/work.html"><strong aria-hidden="true">3.3.6.</strong> 課題と提出時の注意点</a></li></ol></li><li class="chapter-item expanded "><a href="../../php/php03/index.html"><strong aria-hidden="true">3.4.</strong> PHP_DB 連携_CRUD 処理後半</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../php/php03/function-db-connect.html"><strong aria-hidden="true">3.4.1.</strong> DB 接続関数の作成</a></li><li class="chapter-item expanded "><a href="../../php/php03/sql-edit.html"><strong aria-hidden="true">3.4.2.</strong> PHP と DB の連携 3（編集画面の作成）</a></li><li class="chapter-item expanded "><a href="../../php/php03/sql-update.html"><strong aria-hidden="true">3.4.3.</strong> PHP と DB の連携 4（データ更新処理の作成）</a></li><li class="chapter-item expanded "><a href="../../php/php03/sql-delete.html"><strong aria-hidden="true">3.4.4.</strong> PHP と DB の連携 5（データ削除処理）</a></li><li class="chapter-item expanded "><a href="../../php/php03/work.html"><strong aria-hidden="true">3.4.5.</strong> 課題</a></li></ol></li><li class="chapter-item expanded "><a href="../../php/php04/index.html"><strong aria-hidden="true">3.5.</strong> PHP_セッション</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../php/php04/about-session.html"><strong aria-hidden="true">3.5.1.</strong> セッションとは</a></li><li class="chapter-item expanded "><a href="../../php/php04/session-variables.html"><strong aria-hidden="true">3.5.2.</strong> セッション変数</a></li><li class="chapter-item expanded "><a href="../../php/php04/auth-01.html"><strong aria-hidden="true">3.5.3.</strong> 認証処理の実装 1（ログインとログアウト）</a></li><li class="chapter-item expanded "><a href="../../php/php04/auth-02.html"><strong aria-hidden="true">3.5.4.</strong> 認証処理の実装 2（認証状態の確認）</a></li><li class="chapter-item expanded "><a href="../../php/php04/work.html"><strong aria-hidden="true">3.5.5.</strong> 課題</a></li></ol></li><li class="chapter-item expanded "><a href="../../php/php05/index.html"><strong aria-hidden="true">3.6.</strong> PHP_DB 応用_RDB</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../php/php05/about-rdb.html"><strong aria-hidden="true">3.6.1.</strong> RDB の構造</a></li><li class="chapter-item expanded "><a href="../../php/php05/like-add.html"><strong aria-hidden="true">3.6.2.</strong> Like 機能の実装 1（データの追加 1）</a></li><li class="chapter-item expanded "><a href="../../php/php05/like-delete.html"><strong aria-hidden="true">3.6.3.</strong> Like 機能の実装 2（データの追加 2）</a></li><li class="chapter-item expanded "><a href="../../php/php05/like-groupby.html"><strong aria-hidden="true">3.6.4.</strong> Like 機能の実装 3（データの集計）</a></li><li class="chapter-item expanded "><a href="../../php/php05/like-join.html"><strong aria-hidden="true">3.6.5.</strong> Like 機能の実装 4（データの結合）</a></li><li class="chapter-item expanded "><a href="../../php/php05/work.html"><strong aria-hidden="true">3.6.6.</strong> 課題</a></li></ol></li><li class="chapter-item expanded "><a href="../../php/php06/index.html"><strong aria-hidden="true">3.7.</strong> PHP_ファイル操作と Ajax</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../php/php06/about-upload.html"><strong aria-hidden="true">3.7.1.</strong> ファイルアップロードの流れ</a></li><li class="chapter-item expanded "><a href="../../php/php06/upload-file.html"><strong aria-hidden="true">3.7.2.</strong> ファイルアップロード実装</a></li><li class="chapter-item expanded "><a href="../../php/php06/upload-db.html" class="active"><strong aria-hidden="true">3.7.3.</strong> ファイルアップロードと DB 連携</a></li><li class="chapter-item expanded "><a href="../../php/php06/ajax.html"><strong aria-hidden="true">3.7.4.</strong> Ajax 実装</a></li><li class="chapter-item expanded "><a href="../../php/php06/work.html"><strong aria-hidden="true">3.7.5.</strong> 課題</a></li></ol></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">G's-Sapporo-Dev03</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="ファイルアップロードとdb連携"><a class="header" href="#ファイルアップロードとdb連携">ファイルアップロードとDB連携</a></h1>
+<p>ファイルをサーバの指定した場所に保存することはできたが，このままでは使い勝手が良くない．</p>
+<p>ファイルの保存場所を記録しておくことで，他のデータを連携させてアプリケーション上で扱えるようになる．</p>
+<p>今回はDBと連携させて，前回までに実装したtodoリストに組み込む．流れは先程までとほぼ同様だ．</p>
+<h2 id="やることの流れ"><a class="header" href="#やることの流れ">やることの流れ</a></h2>
+<h3 id="送信側"><a class="header" href="#送信側">送信側</a></h3>
+<ul>
+<li>todoなどのデータを一緒に画像ファイルを送信する．</li>
+</ul>
+<h3 id="受信側"><a class="header" href="#受信側">受信側</a></h3>
+<ol start="0">
+<li>準備：送信時にエラー等ないかどうか確認する．</li>
+<li>送られてきたファイルの情報を取得する（ファイルは自動的にtmp領域に保管されている状態）．</li>
+<li>ファイル名を準備する（他のファイルと被らないようにするため）．</li>
+<li>サーバの保存領域に移動（今回は「<code>upload</code>」ディレクトリ）．</li>
+<li>todoなどのデータを一緒に，「保存場所のパス」をテーブルに保存する．</li>
+</ol>
+<h2 id="準備"><a class="header" href="#準備">準備</a></h2>
+<p>「ファイルの保存場所のパス」をテーブルに記録したいので，カラムを追加する．</p>
+<p>phpmyadminから，これまで使用していた<code>todo_table</code>に<code>image</code>カラムを追加しよう．</p>
+<table><thead><tr><th>カラム名</th><th>データ型</th><th>長さ</th><th>その他設定項目</th></tr></thead><tbody>
+<tr><td><code>id</code></td><td>INT</td><td>12</td><td>インデックスを「PRIMARY」に設定．</br>「A_I」にチェック．</td></tr>
+<tr><td><code>todo</code></td><td>VARCHAR</td><td>128</td><td></td></tr>
+<tr><td><code>deadline</code></td><td>DATE</td><td>-</td><td></td></tr>
+<tr><td><code>image</code></td><td>VARCHAR</td><td>128</td><td>「<code>Null</code>にチェックを入れる．」</td></tr>
+<tr><td><code>created_at</code></td><td>DATETIME</td><td>-</td><td></td></tr>
+<tr><td><code>updated_at</code></td><td>DATETIME</td><td>-</td><td></td></tr>
+</tbody></table>
+<h2 id="送信側の処理"><a class="header" href="#送信側の処理">送信側の処理</a></h2>
+<p>送信側のフォームでは以下の点を追記しよう．</p>
+<ul>
+<li>ファイル送信用に<code>&lt;input type=&quot;file&quot;&gt;</code>を追加．</li>
+<li><code>action</code>をファイル保存用の<code>create_file.php</code>に変更．</li>
+<li><code>enctype</code>属性の追加．</li>
+</ul>
+<pre><code class="language-html">&lt;!-- todo_input.php --&gt;
+
+&lt;form action=&quot;create_file.php&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+  &lt;!-- 省略 --&gt;
+  &lt;div&gt;
+    &lt;input type=&quot;file&quot; name=&quot;upfile&quot;
+           accept=&quot;image/*&quot;capture=&quot;camera&quot;&gt;
+  &lt;/div&gt;
+  &lt;!-- 省略 --&gt;
+&lt;/form&gt;
+
+</code></pre>
+<h2 id="受信側の処理"><a class="header" href="#受信側の処理">受信側の処理</a></h2>
+<p>こちらも前項の内容とほぼ同じであるが，ファイルの保存後が異なる．</p>
+<ol start="0">
+<li>準備：送信時にエラー等ないかどうか確認する．</li>
+<li>送られてきたファイルの情報を取得する．</li>
+<li>ファイル名を準備する．</li>
+<li>サーバの保存領域に移動（前項と同じ「<code>upload</code>」ディレクトリ）．</li>
+</ol>
+<p>-- ここまで前項の処理と全く同じ --</p>
+<ol start="4">
+<li>「POSTで受け取ったtodoのデータ」と「ファイルを保存したパス」をテーブルに保存する．</li>
+<li>一覧画面に画像が表示されるよう追記．</li>
+</ol>
+<h3 id="ファイル保存の処理"><a class="header" href="#ファイル保存の処理">ファイル保存の処理</a></h3>
+<p>前項までと全く同様のコード．ただし，今回は画像を表示する必要がないため，権限の変更までの処理で十分である．</p>
+<pre><code class="language-php">// create_file.php
+
+// 他ファイル読み込み，POSTデータの受け取りなど
+
+// データの確認
+if (isset($_FILES['upfile']) &amp;&amp; $_FILES['upfile']['error'] == 0) {
+  // 情報の取得
+  $uploaded_file_name = $_FILES['upfile']['name'];
+  $temp_path  = $_FILES['upfile']['tmp_name'];
+  $directory_path = 'upload/';
+  // ファイル名の準備
+  $extension = pathinfo($uploaded_file_name, PATHINFO_EXTENSION);
+  $unique_name = date('YmdHis').md5(session_id()) . '.' . $extension;
+  $save_path = $directory_path . $unique_name;
+  // 今回は画面に表示しないので権限の変更までで終了
+  if (is_uploaded_file($temp_path)) {
+    if (move_uploaded_file($temp_path, $save_path)) {
+      chmod($save_path, 0644);
+    } else {
+      exit('Error:アップロードできませんでした');
+    }
+  } else {
+    exit('Error:画像がありません');
+  }
+} else {
+  exit('Error:画像が送信されていません');
+}
+
+</code></pre>
+<h3 id="dbへの情報追加"><a class="header" href="#dbへの情報追加">DBへの情報追加</a></h3>
+<p>ここまでで指定の場所にファイルを保存できたので，次は保存したパスをテーブルに追加する．</p>
+<p>流れはいつもどおり「DB接続」 -&gt; 「SQL文作成&amp;実行」．</p>
+<p><code>image</code>カラムを追加しているため，「カラム名」「バインド変数」を追加する．ファイル保存の際に使用した<code>$save_path</code>を<code>image</code>カラムに入れるよう設定している．</p>
+<pre><code class="language-php">// create_file.php
+
+// ファイル保存処理など
+
+$pdo = connect_to_db();
+
+$sql = 'INSERT INTO todo_table(id, todo, deadline, image, created_at, updated_at) VALUES(NULL, :todo, :deadline, :image, sysdate(), sysdate())';
+
+$stmt = $pdo-&gt;prepare($sql);
+$stmt-&gt;bindValue(':todo', $todo, PDO::PARAM_STR);
+$stmt-&gt;bindValue(':deadline', $deadline, PDO::PARAM_STR);
+$stmt-&gt;bindValue(':image', $save_path, PDO::PARAM_STR);
+$status = $stmt-&gt;execute();
+
+if ($status == false) {
+  $error = $stmt-&gt;errorInfo();
+  echo json_encode([&quot;error_msg&quot; =&gt; &quot;{$error[2]}&quot;]);
+  exit();
+} else {
+  header(&quot;Location:todo_input.php&quot;);
+  exit();
+}
+
+</code></pre>
+<h3 id="一覧画面での画像表示"><a class="header" href="#一覧画面での画像表示">一覧画面での画像表示</a></h3>
+<p>テーブルに画像パスを保存できたら，後は呼び出して<code>&lt;img&gt;</code>の中に<code>image</code>カラムの値を設定すれば該当する画像が表示される．</p>
+<p>deleteボタンの後あたりに表示させてみると良いだろう．</p>
+<pre><code class="language-php">// todo_read.php
+
+// 省略
+$output .= &quot;&lt;td&gt;&lt;a href='todo_delete.php?id={$record[&quot;id&quot;]}'&gt;delete&lt;/a&gt;&lt;/td&gt;&quot;;
+$output .= &quot;&lt;td&gt;&lt;img src='{$record[&quot;image&quot;]}' height='150px'&gt;&lt;/td&gt;&quot;;
+$output .= &quot;&lt;/tr&gt;&quot;;
+// 省略
+
+</code></pre>
+<h2 id="練習"><a class="header" href="#練習">練習</a></h2>
+<p>ファイルをアップロードする処理を実装しよう．</p>
+<ul>
+<li><code>todo_input.php</code>にアップロード用のフォームを準備しよう！</li>
+<li><code>create_file.php</code>にアップロード処理を記述して画像をアップロードし，DBと連携させよう！</li>
+<li><code>todo_read.php</code>に画像を表示させよう！</li>
+</ul>
+<p>送信側ファイル（<code>todo_input.php</code>）からファイルをアップロードし，下記の状態になっていればOK！</p>
+<ul>
+<li>送信したファイルが<code>upload</code>フォルダに保存されている．</li>
+<li>画像の保存パスが<code>todo_table</code>の<code>image</code>カラムに保存されている．</li>
+<li>一覧画面（<code>todo_read.php</code>）に画像が表示されている．</li>
+</ul>
+<p>アップロード用のフォームを準備しよう！（todo_input.php）
+アップロード処理を記述して画像をアップロードしよう！（create_file.php）
+アップロードしたファイルのURLをDBに保存しよう！（create_file.php）
+一覧画面に画像を表示しよう！（todo_read.php）
+-&gt; 「画像が<code>upload</code>フォルダに保存」されて「パスがDBに保存」されていればOK！
+-&gt; 一覧画面で画像が表示されればOK！</p>
+<blockquote>
+<p>【参考 / ファイル送信を任意にする】</p>
+<ul>
+<li>現在の状況では，ファイル送信が必須になっている．</li>
+<li>ファイルを「送信してもしなくても良い」ようにするには条件分岐を工夫してやれば良い．</li>
+<li>未送信時には<code>$_FILES</code>内の<code>['error']</code>が<code>4</code>であることを利用して条件を分ける．</li>
+</ul>
+<pre><code class="language-php">// create_file.php
+
+if ($_FILES['upfile']['error'] == 4) {
+ $save_path = null;
+} else if ($_FILES['upfile']['error'] == 0) {
+ // ファイルを保存する処理
+} else {
+ exit('アップロードに失敗しました');
+}
+
+</code></pre>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../php/php06/upload-file.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../php/php06/ajax.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../../php/php06/upload-file.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../../php/php06/ajax.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
